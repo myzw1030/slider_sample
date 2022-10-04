@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'slider demo'),
     );
   }
 }
@@ -37,18 +37,45 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          child: CarouselSlider(
-        items: [
-          Card(
-            child: Container(
-              width: 200,
-              height: 200,
-              color: Colors.blue,
+        child: CarouselSlider(
+          items: [
+            Card(
+              child: Container(
+                width: 200,
+                height: 200,
+                color: Colors.blue,
+              ),
             ),
+            Card(
+              child: Container(
+                width: 200,
+                height: 200,
+                color: Colors.red,
+              ),
+            ),
+            Card(
+              child: Container(
+                width: 200,
+                height: 200,
+                color: Colors.green,
+              ),
+            ),
+          ],
+          options: CarouselOptions(
+            initialPage: 0,
+            enableInfiniteScroll: true,
+            autoPlay: true,
+            autoPlayInterval: const Duration(
+              seconds: 1,
+            ),
+            autoPlayAnimationDuration: const Duration(
+              milliseconds: 500,
+            ),
+            autoPlayCurve: Curves.ease,
+            enlargeCenterPage: true,
           ),
-        ],
-        options: CarouselOptions(initialPage: 0),
-      )),
+        ),
+      ),
     );
   }
 }
